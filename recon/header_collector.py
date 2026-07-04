@@ -19,6 +19,7 @@ import requests
 def header_collector(normalized_url):
     try:
         response = requests.get(normalized_url, timeout=5)
+        response.raise_for_status()
         headers = response.headers
         return True, headers
     except requests.RequestException:
