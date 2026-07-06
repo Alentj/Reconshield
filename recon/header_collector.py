@@ -16,6 +16,7 @@ TODO:
 - Handle request failures
 """
 import requests
+
 def header_collector(normalized_url):
     try:
         response = requests.get(normalized_url, timeout=5)
