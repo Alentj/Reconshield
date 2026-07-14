@@ -11,34 +11,31 @@ Each module has a single responsibility and communicates with other modules thro
 ## Architecture
 
 User
-│
-▼
-main.py
-│
-▼
-URL Validator
-│
-├──────────────┬──────────────┐
-│              │              │
-▼              ▼              ▼
-DNS Resolver   Header Collector   SSL Analyzer
-│              │
-▼              ▼
-Port Scanner   Security Header Analyzer
-│
-▼
-Service Detector
-│
-└──────────────┬──────────────┐
-               ▼
-      Vulnerability Engine
-               │
-               ▼
-          Risk Engine
-               │
-               ▼
-       Report Generator
-
+ │
+ ▼
+validate_url()
+ │
+ ▼
+normalized_url
+ │
+ ├──────────────┬──────────────┐
+ │              │              │
+ ▼              ▼              ▼
+dns_resolver()  header_collector()  ssl_analyzer()
+ │              │
+ ▼              ▼
+port_scanner()  security_header_analyzer()
+ │
+ ▼
+service_detector()
+ │
+ └──────────────┬──────────────┐
+                ▼
+      vulnerability_engine()
+                ▼
+         risk_engine()
+                ▼
+      report_generator()
 ---
 
 ## Module Responsibilities
